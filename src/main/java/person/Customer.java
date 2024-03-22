@@ -1,7 +1,7 @@
 package person;
 
-import PaymentMethod.PaymentMethod;
-import Product.Product;
+import paymentMethod.PaymentMethod;
+import product.Product;
 import thing.Cart;
 
 public class Customer {

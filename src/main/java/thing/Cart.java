@@ -2,7 +2,7 @@ package thing;
 
 import java.util.HashMap;
 import java.util.Map;
-import Product.Product;
+import product.Product;
 
 public class Cart {
     private Map<Product,Integer> map = new HashMap<>();

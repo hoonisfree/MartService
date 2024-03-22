@@ -1,4 +1,4 @@
-package PaymentMethod;
+package paymentMethod;
 
 public abstract class PaymentMethod {
     public int price;

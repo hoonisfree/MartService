@@ -1,4 +1,4 @@
-import Product.*;
+import product.*;
 import thing.Cart;
 
 public class Main {
