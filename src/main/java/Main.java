@@ -12,7 +12,6 @@ public class Main {
         myCart.add(organicEgg, 3);
         System.out.println("===");
         myCart.view();
-        System.out.println("ㅈ");
     }
 
 }
