@@ -1,8 +1,8 @@
 package product;
 
 public abstract class Product {
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
     private Integer quantity;
 
     public Product(String name, int price) {
@@ -15,6 +15,10 @@ public abstract class Product {
         return name;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -23,15 +27,12 @@ public abstract class Product {
         this.quantity += quantity;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    @Override
+    public String toString() {
+        return "Product{" +
+            "name='" + name + '\'' +
+            ", price=" + price +
+            ", quantity=" + quantity +
+            '}';
     }
 }
