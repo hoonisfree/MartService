@@ -1,4 +1,8 @@
+import person.Cashier;
+import person.Kiosk;
+import person.Person;
 import product.*;
+import thing.Bill;
 import thing.Cart;
 
 public class Main {
@@ -12,6 +16,10 @@ public class Main {
         myCart.add(organicEgg, 3);
         System.out.println("===");
         myCart.view();
-    }
 
+        System.out.println();
+        Cashier cashier = new Cashier(new Person("최민수"));
+//        cashier = new Cashier(new Kiosk());
+        cashier.generateBill(myCart);
+    }
 }
