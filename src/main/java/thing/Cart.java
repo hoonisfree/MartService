@@ -26,6 +26,7 @@ public class Cart {
         }
     }
 
-
-
+    public Map<Product, Integer> getProducts() {
+        return map;
+    }
 }

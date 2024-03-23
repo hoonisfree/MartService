@@ -1,28 +1,45 @@
 package person;
 
 import java.util.Map;
+import product.Product;
 import thing.Cart;
 
-public class Cashier implements calculatable {
+public class Cashier implements Calculatable {
+
     private Person person;
+    private int totalPrice;
+
     public Cashier(Person person) {
         this.person = person;
     }
-    public Cashier(Kiosk kiosk) {
+
+    public Cashier(Calculatable calculatable) {
     }
 
     @Override
-    public void calculate(Cart cart) {
-        // 총 금액 넘기기 <- 카트 안에 담긴 물품의 수량과 가격 보고 계산만 하는 곳
-        // product.getPrice() -> getKey().getPrice() * getValue()
-        // 카트에 담긴 product, 수량 list 로 리턴하면 좋을듯?
-//        cart.view();
-//        Map<Product, Integer> cart.getMap();
-// 카트에 담긴 아이템 이름 보고 가격 * 수량 계산만
-
+    public int calculate(Cart cart) {
+        totalPrice = 0;
+        Map<Product, Integer> products = cart.getProducts();
+        for (Map.Entry<Product, Integer> product : products.entrySet()) {
+            totalPrice += product.getKey().getPrice() * product.getValue();
+        }
+        return totalPrice;
     }
+
+    @Override
     public void generateBill(Cart cart) {
-        // calculate해서 , 결제 수단 받아서
-        // 영수증 출력하기
+        totalPrice = calculate(cart);
+
+        Map<Product, Integer> products = cart.getProducts();
+        System.out.printf("%-7s %5s %5s %5s\n", "상품명", "단가", "수량", "금액");
+        System.out.println("================================");
+        for (Map.Entry<Product, Integer> product : products.entrySet()) {
+            String name = product.getKey().getName();
+            int price = product.getKey().getPrice();
+            int quantity = product.getValue();
+            System.out.printf("%-10s %5d %5d %5d\n", name, price, quantity, price * quantity);
+        }
+        System.out.println("================================");
+        System.out.printf("%-24s %d\n", "합 계", totalPrice);
     }
 }
