@@ -1,9 +1,18 @@
 package paymentMethod;
 
-public abstract class PaymentMethod {
-    public int price;
+import thing.Receipt;
 
-    public PaymentMethod(int price) {
-        this.price = price;
-    }
+public abstract class PaymentMethod {
+
+  public int price;
+
+  public PaymentMethod() { //카드
+
+  }
+
+  public PaymentMethod(int price) { //현금
+    this.price = price;
+  }
+
+  public abstract Receipt transact();
 }
