@@ -1,5 +1,5 @@
-//import person.Cashier;
-//import person.Kiosk;
+import person.Cashier;
+import person.Kiosk;
 import person.Person;
 import product.*;
 import thing.Bill;
@@ -16,11 +16,12 @@ public class Main {
         myCart.add(organicEgg, 4);
         myCart.add(seoulMilk, 1);// Milk
         myCart.add(organicEgg, 1);
-        System.out.println("===");
+        System.out.println();
         myCart.view();
 
 //        Cashier cashier = new Cashier(new Person("최민수"));
-////        cashier = new Cashier(new Kiosk());
-//        cashier.generateBill(myCart);
+        Cashier cashier = new Cashier(new Kiosk());
+        cashier.generateBill(myCart);
+        cashier.calculate(myCart);
     }
 }
