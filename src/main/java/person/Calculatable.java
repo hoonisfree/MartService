@@ -1,10 +1,12 @@
 package person;
 
+import thing.Bill;
 import thing.Cart;
 
 public interface Calculatable {
 
-    int calculate(Cart cart);
+  int getTotalPrice(Cart cart);
 
-    void generateBill(Cart cart);
+  Bill generateBill(Cart cart);
+//    void generateBill(Cart cart);
 }

@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import product.Product;
 
-public class Cart {     //TODO: Key 타입을 enum으로 할지 고민하기
+public class Cart {
+
+  //TODO: Key 타입을 enum으로 할지 고민하기
   private static final Map<String, Product> map = new HashMap<>(); //"서울우유", Milk
   private int count = 0;
 
@@ -28,7 +30,8 @@ public class Cart {     //TODO: Key 타입을 enum으로 할지 고민하기
     count += quantity; //카트에 누적되는 양
     map.put(name, current); //객체 업데이트
 
-    System.out.printf("✚ %s (%d원) %d개가 카트에 추가되었습니다. (현재까지 %d / %d 개)\n", product.getName(), product.getPrice(), quantity, count, max);
+    System.out.printf("✚ %s (%d원) %d개가 카트에 추가되었습니다. (현재까지 %d / %d 개)\n", product.getName(),
+        product.getPrice(), quantity, count, max);
   }
 
   public void view() {
@@ -39,7 +42,6 @@ public class Cart {     //TODO: Key 타입을 enum으로 할지 고민하기
     System.out.println();
   }
 
-  //getter
   public Map<String, Product> getProducts() {
     return map;
   }
